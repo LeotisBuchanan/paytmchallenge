@@ -1,0 +1,8 @@
+*.jar
+*.class
+*streams*
+target/
+.idea
+*~
+results
+*.log
