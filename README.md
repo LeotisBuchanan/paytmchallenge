@@ -17,7 +17,8 @@ project.
 This folder containers the following: 
 
 most_engaged_users_results.csv/*.csv
- - This list the top 40 most engaged users 
+ - This list the top 40 most engaged users , it list the client:ip 
+   and the total time spent in minutes
  
 unique_visits_session_results.csv
   - This list the top 40 sessions base on the 
@@ -26,7 +27,7 @@ unique_visits_session_results.csv
     
 average_session_time_result.csv 
 
-- This list average session length
+- This list average session length in minutes
 
 
 
