@@ -34,6 +34,10 @@ object Main {
       .getSetting("sessionanalysis.unique_visits_session_result_path")
 
 
+    val average_session_time_result_path: String = Settings
+      .getSetting("sessionanalysis.average_session_time_result_path")
+
+
     //load the file
     val logs_rdd = sparkSession.sparkContext.textFile(datapath)
 
@@ -91,12 +95,17 @@ object Main {
     /**
       * Average Session Time
       *  - compute the avereage duration of the
-      * sessions
+      * sessions and write them to the results file
       *
       */
 
 
-    session_idDF.select(avg("session_duration").alias("Avg_Session_Time_mins")).show()
+    session_idDF
+      .select(avg("session_duration")
+        .alias("Avg_Session_Time_mins"))
+      .repartition(1)
+      .write.csv(average_session_time_result_path)
+
 
     /**
       * Most Engage Users
